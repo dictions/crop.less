@@ -1,0 +1,150 @@
+/***********************************************************************************************************************************************************************
+      ___                        ___                                      ___           ___           ___                           ___           ___           ___     
+     /  /\           ___        /  /\          ___            ___        /  /\         /  /\         /  /\                         /  /\         /  /\         /  /\    
+    /  /::\         /__/\      /  /::\        /__/\          /__/\      /  /::\       /  /::|       /  /::\                       /  /::\       /  /::\       /  /::\   
+   /  /:/\:\        \__\:\    /  /:/\:\       \  \:\         \__\:\    /  /:/\:\     /  /:|:|      /__/:/\:\                     /  /:/\:\     /  /:/\:\     /  /:/\:\  
+  /  /:/  \:\       /  /::\  /  /:/  \:\       \__\:\        /  /::\  /  /:/  \:\   /  /:/|:|__   _\_ \:\ \:\       ___         /  /:/  \:\   /  /::\ \:\   /  /:/  \:\ 
+ /__/:/ \__\:|   __/  /:/\/ /__/:/ \  \:\      /  /::\    __/  /:/\/ /__/:/ \__\:\ /__/:/ |:| /\ /__/\ \:\ \:\     /  /\       /__/:/ \__\:\ /__/:/\:\_\:\ /__/:/_\_ \:\
+ \  \:\ /  /:/  /__/\/:/    \  \:\  \__\/     /  /:/\:\  /__/\/:/    \  \:\ /  /:/ \__\/  |:|/:/ \  \:\ \:\_\/    /  /::\      \  \:\ /  /:/ \__\/ |::\/:/ \  \:\__/\_\/
+  \  \:\  /:/   \  \::/      \  \:\          /  /:/__\/  \  \::/      \  \:\  /:/      |  |:/:/   \  \:\_\:\     /  /::::\      \  \:\  /:/     |  |:|::/   \  \:\ \:\  
+   \  \:\/:/     \  \:\       \  \:\        /__/:/        \  \:\       \  \:\/:/       |__|::/     \  \:\/:/     \  \::::/       \  \:\/:/      |  |:|\/     \  \:\/:/  
+    \__\::/       \__\/        \  \:\       \__\/          \__\/        \  \::/        /__/:/       \  \::/       \  \::/         \  \::/       |__|:|        \  \::/   
+                                \__\/                                    \__\/         \__\/         \__\/         \__\/           \__\/         \__\|         \__\/    
+
+
+--Crop.less is a way of cropping images with unknown dimensions using LESS mixins. 
+--Fully responsive
+--Relies on "box-sizing" and "background-size" CSS properties
+
+Compatibility:
+--IE9+
+--Safari 3.1
+--iOS Safari 3.2
+--Chrome (BOIIII)
+--Firefox 4
+--Opera 10
+**Submit a pull request if there is a problem with any of these**
+
+HOW TO USE:
+1. Style the picture elements in the "cropless_settings.less" file. 
+2. Include the "cropless.min.js" script if you would not like to use inline CSS styling.
+3. Compile "crop.less" --> which @imports the "cropless_settings.less" file you made earlier.
+4. Include the compiled "crop.css" file in the head of your HTML file. 
+5. Use either inline CSS styling or the "data-src" attribute to set image sources for picture elements.
+
+**************************************************** Authored by Ian Alexander Williams from Dictions.org ************************************************************* 
+
+--Version 1.0
+
+**********************************************************************************************************************************************************************/
+
+
+
+//Box Sizing Mixin
+.boxSizing() {
+	-webkit-box-sizing: border-box !important; 
+	-moz-box-sizing: border-box !important; 
+	box-sizing: border-box !important;
+}
+//Background Size and Position Mixin
+.background() {
+	-webkit-background-size: cover !important;
+	-moz-background-size: cover !important;
+	-o-background-size: cover !important;
+	background-size: cover !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	background-attachment: scroll !important;
+}
+
+//Aspect Ratio Mixins
+.aspect1x1(@rowCount:1, @gutter:0%) { //@gutter has to be in % to work
+	.boxSizing; //Just through them all in there;
+	.background; //One mixin to rule them all!
+	margin-bottom:@gutter; //Creates an even grid
+	height: 0; //Ignores content to keep aspect ratio
+	width: (100% - (@gutter*(@rowCount - 1)))/@rowCount;
+	margin-right: @gutter; //the real gutter
+	padding-bottom: ((100% - (@gutter*(@rowCount - 1)))/@rowCount);
+	@n:~"@{rowCount}n";
+	&:nth-child(@n) {
+		margin-right: 0;
+	}
+}
+.aspect4x3(@rowCount:1, @gutter:0%) { //@gutter has to be in % to work
+	.boxSizing; //Just through them all in there;
+	.background; //One mixin to rule them all!
+	margin-bottom:@gutter; //Creates an even grid
+	height: 0; //Ignores content to keep aspect ratio
+	width: (100% - (@gutter*(@rowCount - 1)))/@rowCount;
+	margin-right: @gutter; //the real gutter
+	padding-bottom: ((100% - (@gutter*(@rowCount - 1)))/@rowCount)*(3/4);
+	@n:~"@{rowCount}n";
+	&:nth-child(@n) {
+		margin-right: 0;
+	}
+}
+.aspect3x2(@rowCount:1, @gutter:0%) { //@gutter has to be in % to work
+	.boxSizing; //Just through them all in there;
+	.background; //One mixin to rule them all!
+	margin-bottom:@gutter; //Creates an even grid
+	height: 0; //Ignores content to keep aspect ratio
+	width: (100% - (@gutter*(@rowCount - 1)))/@rowCount;
+	margin-right: @gutter; //the real gutter
+	padding-bottom: ((100% - (@gutter*(@rowCount - 1)))/@rowCount)*(2/3);
+	@n:~"@{rowCount}n";
+	&:nth-child(@n) {
+		margin-right: 0;
+	}
+}
+.aspectGolden(@rowCount:1, @gutter:0%) { //@gutter has to be in % to work
+	.boxSizing; //Just through them all in there;
+	.background; //One mixin to rule them all!
+	margin-bottom:@gutter; //Creates an even grid
+	height: 0; //Ignores content to keep aspect ratio
+	width: (100% - (@gutter*(@rowCount - 1)))/@rowCount;
+	margin-right: @gutter; //the real gutter
+	padding-bottom: ((100% - (@gutter*(@rowCount - 1)))/@rowCount)*(1/1.618);
+	@n:~"@{rowCount}n";
+	&:nth-child(@n) {
+		margin-right: 0;
+	}
+}
+.aspect16x9(@rowCount:1, @gutter:0%) { //@gutter has to be in % to work
+	.boxSizing; //Just through them all in there;
+	.background; //One mixin to rule them all!
+	margin-bottom:@gutter; //Creates an even grid
+	height: 0; //Ignores content to keep aspect ratio
+	width: (100% - (@gutter*(@rowCount - 1)))/@rowCount;
+	margin-right: @gutter; //the real gutter
+	padding-bottom: ((100% - (@gutter*(@rowCount - 1)))/@rowCount)*(9/16);
+	@n:~"@{rowCount}n";
+	&:nth-child(@n) {
+		margin-right: 0;
+	}
+}
+.aspectAnamorphic(@rowCount:1, @gutter:0%) { //@gutter has to be in % to work
+	.boxSizing; //Just through them all in there;
+	.background; //One mixin to rule them all!
+	margin-bottom:@gutter; //Creates an even grid
+	height: 0; //Ignores content to keep aspect ratio
+	width: (100% - (@gutter*(@rowCount - 1)))/@rowCount;
+	margin-right: @gutter; //the real gutter
+	padding-bottom: ((100% - (@gutter*(@rowCount - 1)))/@rowCount)*(1/2.35);
+	@n:~"@{rowCount}n";
+	&:nth-child(@n) {
+		margin-right: 0;
+	}
+}
+
+
+
+  /*****************************************/
+ /*****************************************/
+/************Import Settings**************/
+//This is necessary for compiling purposes; 
+//cannot link multiple LESS files in the HTML;
+//nor can you compile files separately. 
+@import "cropless_settings.less";
+
+

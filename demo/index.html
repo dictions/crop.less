@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Crop.less | DEMO</title>
+	<link rel="icon" href="">
+
+	<!--Reset and Demo Styling-->
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!--Use the compiled version for script free usage-->
+	<!--LESS only compiles when hosted on a server, not via file://-->
+	<link rel="stylesheet/less" type="text/css" href="less/crop.less">
+	<script type="text/javascript" src="js/less.js"></script>
+
+</head>
+
+<body>
+
+	<header>
+		<h1>Crop.less</h1>
+		<p>Autocrop galleries of images without weighing yourself down with multiple image sizes. Guess what kids, it's responsive.</p>
+	</header>
+
+	<ul class="clearfix">
+		<!--using inline CSS-->
+		<li class="top" style="background-image: url(img/theShit.jpg);"></li>
+	</ul>
+
+	<ul class="clearfix">
+		<!--using "data-src"-->
+		<li class="square" data-src="img/theShit.jpg"></li>
+		<li class="square" data-src="img/theShit.jpg"></li>
+		<li class="bottom" data-src="img/theShit.jpg"></li>
+		<li class="bigBottom" data-src="img/theShit.jpg"></li>
+	</ul>
+
+
+	<!--Use this script to eradicate inline CSS.
+	Make sure to put it at the BOTTOM for a document.ready substitute if you aren't using jQuery. It relies on the DOM!-->
+	<script type="text/javascript" src="js/cropless.min.js"></script>
+</body>
+
+</html>

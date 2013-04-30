@@ -1,0 +1,29 @@
+html {
+	padding: 0 1em;
+	-webkit-font-smoothing: antialiased;
+}
+body {
+	margin: 100px auto;
+	max-width: 1400px;
+	font-size: 3em;
+	line-height: 1.25em;
+	font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif; font-weight:300; font-stretch:normal;
+}
+header {
+	margin-bottom: 100px;
+}
+header h1 {
+	margin-bottom: .5em;
+	font-size: 1.5em;
+	font-family: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosBold', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif; font-weight:600; font-stretch:normal;
+}
+li {
+	float: left;
+	display: inline-block;
+}
+/*Self Clears children http://css-tricks.com/snippets/css/clear-fix/*/
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
