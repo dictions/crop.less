@@ -1,18 +1,18 @@
 /***********************************************************************************************************************************************************************
-      ___                        ___                                      ___           ___           ___                           ___           ___           ___     
-     /  /\           ___        /  /\          ___            ___        /  /\         /  /\         /  /\                         /  /\         /  /\         /  /\    
-    /  /::\         /__/\      /  /::\        /__/\          /__/\      /  /::\       /  /::|       /  /::\                       /  /::\       /  /::\       /  /::\   
-   /  /:/\:\        \__\:\    /  /:/\:\       \  \:\         \__\:\    /  /:/\:\     /  /:|:|      /__/:/\:\                     /  /:/\:\     /  /:/\:\     /  /:/\:\  
-  /  /:/  \:\       /  /::\  /  /:/  \:\       \__\:\        /  /::\  /  /:/  \:\   /  /:/|:|__   _\_ \:\ \:\       ___         /  /:/  \:\   /  /::\ \:\   /  /:/  \:\ 
+      ___                        ___                                      ___           ___           ___                           ___           ___           ___
+     /  /\           ___        /  /\          ___            ___        /  /\         /  /\         /  /\                         /  /\         /  /\         /  /\
+    /  /::\         /__/\      /  /::\        /__/\          /__/\      /  /::\       /  /::|       /  /::\                       /  /::\       /  /::\       /  /::\
+   /  /:/\:\        \__\:\    /  /:/\:\       \  \:\         \__\:\    /  /:/\:\     /  /:|:|      /__/:/\:\                     /  /:/\:\     /  /:/\:\     /  /:/\:\
+  /  /:/  \:\       /  /::\  /  /:/  \:\       \__\:\        /  /::\  /  /:/  \:\   /  /:/|:|__   _\_ \:\ \:\       ___         /  /:/  \:\   /  /::\ \:\   /  /:/  \:\
  /__/:/ \__\:|   __/  /:/\/ /__/:/ \  \:\      /  /::\    __/  /:/\/ /__/:/ \__\:\ /__/:/ |:| /\ /__/\ \:\ \:\     /  /\       /__/:/ \__\:\ /__/:/\:\_\:\ /__/:/_\_ \:\
  \  \:\ /  /:/  /__/\/:/    \  \:\  \__\/     /  /:/\:\  /__/\/:/    \  \:\ /  /:/ \__\/  |:|/:/ \  \:\ \:\_\/    /  /::\      \  \:\ /  /:/ \__\/ |::\/:/ \  \:\__/\_\/
-  \  \:\  /:/   \  \::/      \  \:\          /  /:/__\/  \  \::/      \  \:\  /:/      |  |:/:/   \  \:\_\:\     /  /::::\      \  \:\  /:/     |  |:|::/   \  \:\ \:\  
-   \  \:\/:/     \  \:\       \  \:\        /__/:/        \  \:\       \  \:\/:/       |__|::/     \  \:\/:/     \  \::::/       \  \:\/:/      |  |:|\/     \  \:\/:/  
-    \__\::/       \__\/        \  \:\       \__\/          \__\/        \  \::/        /__/:/       \  \::/       \  \::/         \  \::/       |__|:|        \  \::/   
-                                \__\/                                    \__\/         \__\/         \__\/         \__\/           \__\/         \__\|         \__\/    
+  \  \:\  /:/   \  \::/      \  \:\          /  /:/__\/  \  \::/      \  \:\  /:/      |  |:/:/   \  \:\_\:\     /  /::::\      \  \:\  /:/     |  |:|::/   \  \:\ \:\
+   \  \:\/:/     \  \:\       \  \:\        /__/:/        \  \:\       \  \:\/:/       |__|::/     \  \:\/:/     \  \::::/       \  \:\/:/      |  |:|\/     \  \:\/:/
+    \__\::/       \__\/        \  \:\       \__\/          \__\/        \  \::/        /__/:/       \  \::/       \  \::/         \  \::/       |__|:|        \  \::/
+                                \__\/                                    \__\/         \__\/         \__\/         \__\/           \__\/         \__\|         \__\/
 
 
---Crop.less is a way of cropping images with unknown dimensions using LESS mixins. 
+--Crop.less is a way of cropping images with unknown dimensions using LESS mixins.
 --Fully responsive
 --Relies on "box-sizing" and "background-size" CSS properties
 
@@ -26,13 +26,13 @@ Compatibility:
 **Submit a pull request if there is a problem with any of these**
 
 HOW TO USE:
-1. Style the picture elements in the "cropless_settings.less" file. 
+1. Style the picture elements in the "cropless_settings.less" file.
 2. Include the "cropless.min.js" script if you would not like to use inline CSS styling.
 3. Compile "crop.less" --> which @imports the "cropless_settings.less" file you made earlier.
-4. Include the compiled "crop.css" file in the head of your HTML file. 
+4. Include the compiled "crop.css" file in the head of your HTML file.
 5. Use either inline CSS styling or the "data-src" attribute to set image sources for picture elements.
 
-**************************************************** Authored by Ian Alexander Williams from Dictions.org ************************************************************* 
+**************************************************** Authored by Ian Alexander Williams from Dictions.org *************************************************************
 
 --Version 1.0
 
@@ -42,8 +42,8 @@ HOW TO USE:
 
 //Box Sizing Mixin
 .boxSizing() {
-	-webkit-box-sizing: border-box !important; 
-	-moz-box-sizing: border-box !important; 
+	-webkit-box-sizing: border-box !important;
+	-moz-box-sizing: border-box !important;
 	box-sizing: border-box !important;
 }
 //Background Size and Position Mixin
@@ -67,7 +67,7 @@ HOW TO USE:
 	margin-right: @gutter; //the real gutter
 	padding-bottom: ((100% - (@gutter*(@rowCount - 1)))/@rowCount);
 	@n:~"@{rowCount}n";
-	&:nth-child(@n) {
+	&:nth-child(@{n}) {
 		margin-right: 0;
 	}
 }
@@ -80,7 +80,7 @@ HOW TO USE:
 	margin-right: @gutter; //the real gutter
 	padding-bottom: ((100% - (@gutter*(@rowCount - 1)))/@rowCount)*(3/4);
 	@n:~"@{rowCount}n";
-	&:nth-child(@n) {
+	&:nth-child(@{n}) {
 		margin-right: 0;
 	}
 }
@@ -93,7 +93,7 @@ HOW TO USE:
 	margin-right: @gutter; //the real gutter
 	padding-bottom: ((100% - (@gutter*(@rowCount - 1)))/@rowCount)*(2/3);
 	@n:~"@{rowCount}n";
-	&:nth-child(@n) {
+	&:nth-child(@{n}) {
 		margin-right: 0;
 	}
 }
@@ -106,7 +106,7 @@ HOW TO USE:
 	margin-right: @gutter; //the real gutter
 	padding-bottom: ((100% - (@gutter*(@rowCount - 1)))/@rowCount)*(1/1.618);
 	@n:~"@{rowCount}n";
-	&:nth-child(@n) {
+	&:nth-child(@{n}) {
 		margin-right: 0;
 	}
 }
@@ -119,7 +119,7 @@ HOW TO USE:
 	margin-right: @gutter; //the real gutter
 	padding-bottom: ((100% - (@gutter*(@rowCount - 1)))/@rowCount)*(9/16);
 	@n:~"@{rowCount}n";
-	&:nth-child(@n) {
+	&:nth-child(@{n}) {
 		margin-right: 0;
 	}
 }
@@ -132,7 +132,7 @@ HOW TO USE:
 	margin-right: @gutter; //the real gutter
 	padding-bottom: ((100% - (@gutter*(@rowCount - 1)))/@rowCount)*(1/2.35);
 	@n:~"@{rowCount}n";
-	&:nth-child(@n) {
+	&:nth-child(@{n}) {
 		margin-right: 0;
 	}
 }
@@ -142,9 +142,9 @@ HOW TO USE:
   /*****************************************/
  /*****************************************/
 /************Import Settings**************/
-//This is necessary for compiling purposes; 
+//This is necessary for compiling purposes;
 //cannot link multiple LESS files in the HTML;
-//nor can you compile files separately. 
+//nor can you compile files separately.
 @import "cropless_settings.less";
 
 
